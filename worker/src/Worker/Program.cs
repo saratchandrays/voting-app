@@ -121,8 +121,9 @@ namespace Worker
                     Console.Error.WriteLine("Connecting to redis");
                     return ConnectionMultiplexer.Connect(ipAddress);
                 }
-                catch (RedisConnectionException)
+                catch (RedisConnectionException rce)
                 {
+                    Console.Error.WriteLine(rce.Message);
                     Console.Error.WriteLine("Waiting for redis");
                     Thread.Sleep(1000);
                 }
