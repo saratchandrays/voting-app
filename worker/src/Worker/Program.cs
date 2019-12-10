@@ -19,6 +19,7 @@ namespace Worker
                 var db = Environment.GetEnvironmentVariable("db");
                 Console.WriteLine(db);
                 var pass = Environment.GetEnvironmentVariable("dbpasswd");
+                Console.Writeline($"Server=db;Username=postgres;Password={pass}");
                 var pgsql = OpenDbConnection($"Server=db;Username=postgres;Password={pass}");
                 var redisConn = OpenRedisConnection("redis");
                 var redis = redisConn.GetDatabase();
