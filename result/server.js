@@ -22,9 +22,9 @@ io.sockets.on('connection', function (socket) {
     socket.join(data.channel);
   });
 });
-
+var passwd = process.env.dbpasswd;
 var pool = new pg.Pool({
-  connectionString: 'postgres://postgres@db/postgres'
+  connectionString: 'postgres://postgres:'+passwd+'@db/postgres'
 });
 
 async.retry(
