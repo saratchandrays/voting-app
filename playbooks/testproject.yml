@@ -1,8 +1,4 @@
 ---
 - name: login
   tasks:
-    shell: oc login --token=pybdlwhojJJ4KVsClU2IJLTTO8mSHtGKZma11w9KqFA --server=https://c107-e.us-south.containers.cloud.ibm.com:30111
-
-- name: Create project
-  tasks:
-    shell: oc new-project testingansible
+    shell: oc login --token=pybdlwhojJJ4KVsClU2IJLTTO8mSHtGKZma11w9KqFA --server=https://c107-e.us-south.containers.cloud.ibm.com:30111 new-project testingansible
