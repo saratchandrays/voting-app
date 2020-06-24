@@ -1,8 +1,12 @@
 ---
-- name: This is a hello-world example
-  hosts: ansibleclient01.local
-  tasks:
-    - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
-      copy:
-        content: hello worldn
-        dest: /tmp/testfile.txt
+- name: Create project
+  hosts: c107-e.us-south.containers.cloud.ibm.com
+  oc:
+    state: present
+    inline:
+      kind: ProjectRequest
+      metadata:
+        - name: ansibletestproject
+          displayName: Ansible Test Project
+          description: This project was created using Ansible
+    token: 0onQYPNbif-qZVZxJSXOK-PywdG8OPA_FHYi-5KeO-o
