@@ -1,5 +1,6 @@
 ---
 - name: Create project
+  hosts: https://c107-e.us-south.containers.cloud.ibm.com:30111
   oc:
     state: present
     inline:
@@ -8,5 +9,4 @@
         - name: ansibletestproject
           displayName: Ansible Test Project
           description: This project was created using Ansible
-    token: 0onQYPNbif-qZVZxJSXOK-PywdG8OPA_FHYi-5KeO-o 
-    server: https://c107-e.us-south.containers.cloud.ibm.com:30111
+    token: 0onQYPNbif-qZVZxJSXOK-PywdG8OPA_FHYi-5KeO-o
