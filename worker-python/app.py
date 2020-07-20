@@ -2,6 +2,7 @@
 
 from redis import Redis
 import os
+import time
 
 def get_redis():
     redis_conn = Redis(host="redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
@@ -14,7 +15,7 @@ def process_votes():
           redis = get_redis()
           msg = redis.rpop("votes")
           print(msg)
-          sleep(10)        
+          time.sleep(10)        
    
        except Exception as e:
           print(e)
