@@ -6,9 +6,17 @@ import time
 import psycopg2
 
 def get_redis():
-    redis_conn = Redis(host="redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
-    return redis_conn
+   redis_conn = Redis(host="redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
+   return redis_conn
 
+def connect_postgres(): 
+   dbp=os.getenv('dbpasswd') 
+   print "DB password = " + dbp 
+   try:
+      conn = psycopg2.connect("dbname=db user=postgres password=dbp")
+      print("Successfully connected to PostGres")
+   except Exception as e:
+      print (e)
 
 def process_votes():
     while True: 
@@ -25,4 +33,7 @@ def process_votes():
 
 
 if __name__ == '__main__':
+    connect_postgres()
     process_votes()
+
+
