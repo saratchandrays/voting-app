@@ -4,8 +4,8 @@ from redis import Redis
 
 def get_redis():
     if not hasattr(g, 'redis'):
-        g.redis = Redis(host="redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
-    return g.redis
+        redis_conn = Redis(host="redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
+    return redis_conn
 
 
 def process_votes():
