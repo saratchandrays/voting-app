@@ -11,9 +11,9 @@ def get_redis():
 
 def connect_postgres(): 
    dbp=os.getenv('dbpasswd') 
-   print "DB password = " + dbp 
+   print dbp 
    try:
-      conn = psycopg2.connect("dbname=db user=postgres password=dbp")
+      conn = psycopg2.connect("dbname=db user=postgres password=dbp host=172.30.114.217")
       print("Successfully connected to PostGres")
    except Exception as e:
       print (e)
