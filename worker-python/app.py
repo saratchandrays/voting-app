@@ -9,13 +9,15 @@ def get_redis():
 
 
 def process_votes():
-    try:  
-        redis = get_redis()
-        msg = redis.rpop("votes")
-        print(msg)        
+    while true: 
+       try:  
+          redis = get_redis()
+          msg = redis.rpop("votes")
+          print(msg)
+          sleep(10)        
    
-    except Exception as e:
-        print(e)
+       except Exception as e:
+          print(e)
 
 
 if __name__ == '__main__':
