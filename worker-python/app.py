@@ -10,11 +10,13 @@ def get_redis():
    return redis_conn
 
 def connect_postgres(): 
+   # Vva1VrSRCqqJnYKH
    dbp=os.getenv('dbpasswd') 
+   host=os.getenv('POSTGRES_SERVICE_HOST') 
    print dbp 
    try:
       #conn = psycopg2.connect("host=db user=postgres password=dbp host=172.30.114.217")
-      conn = psycopg2.connect ("host={} user={} password={}".format("db", "postgres", dbp) )
+      conn = psycopg2.connect ("host={} db={} user={} password={}".format(host, "db", "postgres", dbp) )
       print("Successfully connected to PostGres")
    except Exception as e:
       print (e)
