@@ -11,7 +11,7 @@ def get_redis():
 def process_votes():
     try:  
         redis = get_redis()
-        msg = redis.get("votes")
+        msg = redis.rpop("votes")
         print(msg)        
    
     except Exception as e:
