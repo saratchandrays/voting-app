@@ -9,7 +9,7 @@ def get_redis():
 
 
 def process_votes():
-    while true: 
+    while True: 
        try:  
           redis = get_redis()
           msg = redis.rpop("votes")
