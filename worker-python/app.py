@@ -4,6 +4,7 @@ from redis import Redis
 import os
 import time
 import psycopg2
+import json
 
 def get_redis():
    #redis_conn = Redis(host="redis", db=0, socket_timeout=5) # this is for Z 
@@ -36,16 +37,16 @@ def insert_postgres(conn, data):
        cur = conn.cursor() 
        cur.execute("insert into votes values (%s, %s)",
        ( 
-          data.get(voter-id), 
-          data.get(vote)
+          data.get("voter-id"), 
+          data.get("vote")
        ))
        conn.commit()  
        print ("row inserted into DB") 
+
     except Exception as e: 
        conn.rollback()
        print ("error inserting into postgres")  
        print (str(e)) 
-
 
 def process_votes(db_conn):
     redis = get_redis() 
@@ -54,14 +55,14 @@ def process_votes(db_conn):
           msg = redis.rpop("votes")
           print(msg)
           if (msg != None): 
-             insert_postgres(db_conn, msg) 
+             msg_dict = json.loads(msg)
+             insert_postgres(db_conn, msg_dict) 
           # will look like this
           # {"vote": "a", "voter_id": "71f0caa7172a84eb"}
           time.sleep(10)        
    
        except Exception as e:
           print(e)
-
 
 if __name__ == '__main__':
     db_conn = connect_postgres()
