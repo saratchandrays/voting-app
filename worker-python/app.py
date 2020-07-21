@@ -16,7 +16,7 @@ def connect_postgres():
    print dbp 
    try:
       #conn = psycopg2.connect("host=db user=postgres password=dbp host=172.30.114.217")
-      conn = psycopg2.connect ("host={} user={} password={}".format(host, "postgres", dbp) )
+      conn = psycopg2.connect ("host={} dbname{} user={} password={}".format("sample-app", "postgres", "dave", "dave") )
       print("Successfully connected to PostGres")
    except Exception as e:
       print (e)
