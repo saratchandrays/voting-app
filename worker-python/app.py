@@ -6,7 +6,8 @@ import time
 import psycopg2
 
 def get_redis():
-   redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
+   redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
+   print ("connected to redis!") 
    return redis_conn
 
 def connect_postgres(): 
@@ -15,6 +16,7 @@ def connect_postgres():
    host=os.getenv('POSTGRES_SERVICE_HOST') 
    print (dbp) 
    try:
+      print ("connecting to the DB") 
       #conn = psycopg2.connect("host=db user=postgres password=dbp host=172.30.114.217")
       conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("new-postgresql", "postgres", "dave", "dave") )
       print("Successfully connected to PostGres")
@@ -22,9 +24,9 @@ def connect_postgres():
       print (e)
 
 def process_votes():
+    redis = get_redis() 
     while True: 
        try:  
-          redis = get_redis()
           msg = redis.rpop("votes")
           print(msg)
           # will look like this
