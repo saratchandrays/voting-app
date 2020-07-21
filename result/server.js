@@ -24,8 +24,12 @@ io.sockets.on('connection', function (socket) {
 });
 var passwd = process.env.dbpasswd;
 var pool = new pg.Pool({
+   user: 'dave', 
+   host: 'sample-app',
+   database: 'postgres',
+   password: 'dave'
 //  connectionString: 'postgres://postgres:'+passwd+'@db/postgres'
-    connectionString: 'postgres://dave:dave'+'@db/postgres'
+//    connectionString: 'postgres://dave:dave'+'@db/postgres'
 });
 
 async.retry(
