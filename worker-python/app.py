@@ -37,7 +37,7 @@ def insert_postgres(conn, data):
        cur = conn.cursor() 
        cur.execute("insert into votes values (%s, %s)",
        ( 
-          data.get("voter-id"), 
+          data.get("voter_id"), 
           data.get("vote")
        ))
        conn.commit()  
