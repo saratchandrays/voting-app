@@ -26,16 +26,35 @@ def connect_postgres():
       sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL);"
       cursor.execute(sqlCreateTable)
       print ("votes table created") 
+      return conn 
 
    except Exception as e:
       print (e)
 
-def process_votes():
+def insert_postgres(conn, data): 
+    try: 
+       cur = conn.cursor() 
+       cur.execute("insert into votes values (%s, %s)",
+       ( 
+          data.get(voter-id), 
+          data.get(vote)
+       ))
+       conn.commit()  
+       print ("row inserted into DB") 
+    except Exception as e: 
+       conn.rollback()
+       print ("error inserting into postgres")  
+       print (str(e)) 
+
+
+def process_votes(db_conn):
     redis = get_redis() 
     while True: 
        try:  
           msg = redis.rpop("votes")
           print(msg)
+          if (msg != None): 
+             insert_postgres(db_conn, msg) 
           # will look like this
           # {"vote": "a", "voter_id": "71f0caa7172a84eb"}
           time.sleep(10)        
@@ -45,7 +64,7 @@ def process_votes():
 
 
 if __name__ == '__main__':
-    connect_postgres()
-    process_votes()
+    db_conn = connect_postgres()
+    process_votes(db_conn)
 
 
