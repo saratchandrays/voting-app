@@ -6,7 +6,8 @@ import time
 import psycopg2
 
 def get_redis():
-   redis_conn = Redis(host="redis", db=0, socket_timeout=5)
+   #redis_conn = Redis(host="redis", db=0, socket_timeout=5) # this is for Z 
+   redis_conn = Redis(host="redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
    print ("connected to redis!") 
    return redis_conn
 
