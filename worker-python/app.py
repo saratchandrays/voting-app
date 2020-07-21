@@ -6,7 +6,7 @@ import time
 import psycopg2
 
 def get_redis():
-   redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
+   redis_conn = Redis(host="redis", db=0, socket_timeout=5)
    print ("connected to redis!") 
    return redis_conn
 
@@ -18,7 +18,7 @@ def connect_postgres():
    try:
       print ("connecting to the DB") 
       #conn = psycopg2.connect("host=db user=postgres password=dbp host=172.30.114.217")
-      conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("new-postgresql", "postgres", "dave", "dave") )
+      conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("sample-app", "postgres", "dave", "dave") )
       print("Successfully connected to PostGres")
       
       cursor = conn.cursor()
