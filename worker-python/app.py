@@ -23,7 +23,7 @@ def connect_postgres():
       print ("connecting to the DB") 
       #conn = psycopg2.connect("host=db user=postgres password=dbp host=172.30.114.217")
       #conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("sample-app", "postgres", "dave", "dave") )
-      conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("new-postgresql", "postgres", db_user, db_pass)
+      conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("new-postgresql", "postgres", db_user, db_pass))
       print ("Successfully connected to PostGres")
       
       cursor = conn.cursor()
