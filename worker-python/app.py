@@ -22,7 +22,7 @@ def connect_postgres():
       #conn = psycopg2.connect("host=db user=postgres password=dbp host=172.30.114.217")
       #conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("sample-app", "postgres", "dave", "dave") )
       conn = psycopg2.connect ("host={} dbname={} user={} password={}".format("new-postgresql", "postgres", os.getenv('DB_USER', "DB_PASS") )
-      print("Successfully connected to PostGres")
+      print ("Successfully connected to PostGres")
       
       cursor = conn.cursor()
       sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL);"
