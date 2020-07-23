@@ -9,6 +9,8 @@ option_a = os.getenv('OPTION_A', "Felines")
 option_b = os.getenv('OPTION_B', "Canines")
 hostname = socket.gethostname()
 
+# may have to have env variable for Z
+
 app = Flask(__name__)
 
 def get_redis():
