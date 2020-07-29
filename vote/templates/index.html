@@ -17,8 +17,8 @@
         <form id="choice" name='form' method="POST" action="/">
           <button id="a" type="submit" name="vote" class="a" value="a">{{option_a}}</button>
           <button id="b" type="submit" name="vote" class="b" value="b">{{option_b}}</button>
-          <button id="c" type="submit" name="vote" class="c" value="c">{{option_c}}</button>
-          <button id="d" type="submit" name="vote" class="d" value="d">{{option_d}}</button>
+          <button id="c" type="submit" name="vote" class="a" value="c">{{option_c}}</button>
+          <button id="d" type="submit" name="vote" class="b" value="d">{{option_d}}</button>
         </form>
         <div id="tip">
           (Tip: you can change your vote)
@@ -51,14 +51,14 @@
       }
       if(vote == "c"){
         $(".c").prop('disabled', true);
-        $(".c").html('{{option_a}} <i class="fa fa-check-circle"></i>');
+        $(".c").html('{{option_c}} <i class="fa fa-check-circle"></i>');
         $(".a").css('opacity','0.5');
         $(".b").css('opacity','0.5');
         $(".d").css('opacity','0.5');
       }
       if(vote == "d"){
         $(".d").prop('disabled', true);
-        $(".d").html('{{option_b}} <i class="fa fa-check-circle"></i>');
+        $(".d").html('{{option_d}} <i class="fa fa-check-circle"></i>');
         $(".a").css('opacity','0.5');
         $(".b").css('opacity','0.5');
         $(".c").css('opacity','0.5');
