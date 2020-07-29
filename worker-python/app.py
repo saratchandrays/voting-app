@@ -27,7 +27,7 @@ def connect_postgres():
       print ("Successfully connected to PostGres")
       
       cursor = conn.cursor()
-      sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL UNIQUE, vote VARCHAR(255) NOT NULL);"
+      sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL, vote VARCHAR(255) NOT NULL);"
       cursor.execute(sqlCreateTable)
       print ("votes table created") 
       return conn 
@@ -62,7 +62,7 @@ def process_votes(db_conn):
              insert_postgres(db_conn, msg_dict) 
           # will look like this
           # {"vote": "a", "voter_id": "71f0caa7172a84eb"}
-          time.sleep(10)        
+          time.sleep(3)        
    
        except Exception as e:
           print(e)
