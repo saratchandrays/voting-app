@@ -7,6 +7,8 @@ import json
 
 option_a = os.getenv('OPTION_A', "Python")
 option_b = os.getenv('OPTION_B', "Node.js")
+option_c = os.getenv('OPTION_C', "Java")
+option_d = os.getenv('OPTION_D', "Go")
 hostname = socket.gethostname()
 
 # may have to have env variable for Z
@@ -41,6 +43,8 @@ def hello():
         'index.html',
         option_a=option_a,
         option_b=option_b,
+        option_c=option_c,
+        option_d=option_d,
         hostname=hostname,
         vote=vote,
     ))
