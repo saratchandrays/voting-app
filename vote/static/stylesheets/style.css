@@ -114,11 +114,11 @@ button.d{
   background-color: #00a2a1;
 }
 
-#choice button.a:focus{
+#choice button.c:focus{
   background-color: #1488c6;
 }
 
-#choice button.b:focus{
+#choice button.d:focus{
   background-color: #00a2a1;
 }
 
