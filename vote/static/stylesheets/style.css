@@ -110,7 +110,7 @@ button.d{
   background-color: #1488c6;
 }
 
-#choice button.b:hover{
+#choice button.b:focus{
   background-color: #00a2a1;
 }
 
