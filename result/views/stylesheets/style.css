@@ -88,15 +88,26 @@ body{
   text-transform: uppercase;
 }
 
-#choice .choice.dogs{
+#choice .choice.python{
   color: #00cbca;
   float: right;
 }
 
-#choice .choice.cats{
+#choice .choice.node{
   color: #2196f3;
   float: left;
 }
+
+#choice .choice.java{
+  color: #00cbca;
+  float: left;
+}
+
+#choice .choice.go{
+  color: #2196f3;
+  float: left;
+}
+
 #background-stats{
   z-index:1;
   height:100%;
