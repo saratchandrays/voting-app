@@ -22,7 +22,8 @@ def get_redis():
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
        print ("Connected to Redis") 
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
-       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password="dave")
+       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password='dave')
+       print (redis_conn)
     return redis_conn
 
 @app.route("/", methods=['POST','GET'])
