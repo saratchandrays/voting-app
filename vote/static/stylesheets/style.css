@@ -35,13 +35,6 @@ button.b{
   background-color: #00cbca;
 }
 
-button.c{
-  background-color: #1aaaf8;
-}
-
-button.d{
-  background-color: #00cbca;
-}
 
 #tip{
   text-align: left;
@@ -114,13 +107,6 @@ button.d{
   background-color: #00a2a1;
 }
 
-#choice button.c:focus{
-  background-color: #1488c6;
-}
-
-#choice button.d:focus{
-  background-color: #00a2a1;
-}
 
 #background-stats{
   z-index:1;
