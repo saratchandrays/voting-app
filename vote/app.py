@@ -20,6 +20,7 @@ def get_redis():
     else: 
        print ("Connecting to Redis using x86 connection string")
        redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
+       print ("Connected to Redis") 
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
     return redis_conn
 
