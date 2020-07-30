@@ -16,15 +16,15 @@ app = Flask(__name__)
 def get_redis():
     if (os.getenv('OS_ENV') == "Z"):
        print ("Connecting to Redis using Z connection string")
-       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
+       g.redis = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
     else: 
        print ("Connecting to Redis using x86 connection string")
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
        print ("Connected to Redis") 
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
-       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password="dave")
-       print (redis_conn)
-    return redis_conn
+       g.redis = Redis(host="new-redis", db=0, socket_timeout=5, password="dave")
+       print (g.redis)
+    return g.redis
 
 @app.route("/", methods=['POST','GET'])
 def hello():
