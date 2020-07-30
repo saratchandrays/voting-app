@@ -21,7 +21,8 @@ def get_redis():
        print ("Connecting to Redis using x86 connection string")
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
        print ("Connected to Redis") 
-       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
+       #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
+       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password="dave")
     return redis_conn
 
 @app.route("/", methods=['POST','GET'])
