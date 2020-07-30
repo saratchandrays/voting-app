@@ -11,9 +11,9 @@ def get_redis():
    if (os.getenv('OS_ENV') == "Z"):
       print ("Connecting to Redis using Z connection string")
       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
-   else: 
-      redis_conn = Redis(host="new_redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
+   else:
       print ("Connecting to Redis using x86 connection string")
+      redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
    print ("connected to redis!") 
    return redis_conn
 
