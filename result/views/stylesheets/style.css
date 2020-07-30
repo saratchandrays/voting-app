@@ -98,15 +98,6 @@ body{
   float: left;
 }
 
-#choice .choice.java{
-  color: #00cbca;
-  float: left;
-}
-
-#choice .choice.go{
-  color: #2196f3;
-  float: left;
-}
 
 #background-stats{
   z-index:1;
