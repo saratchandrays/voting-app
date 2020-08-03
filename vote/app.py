@@ -17,6 +17,7 @@ def get_redis():
     if (os.getenv('OS_ENV') == "Z"):
        print ("Connecting to Redis using Z connection string")
        g.redis = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
+       print (g.redis)
     else: 
        print ("Connecting to Redis using x86 connection string")
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
@@ -38,7 +39,7 @@ def hello():
         redis = get_redis()
         vote = request.form['vote']
         data = json.dumps({'voter_id': voter_id, 'vote': vote})
-        #redis.rpush('votes', data)
+        redis.rpush('votes', data)
 
     resp = make_response(render_template(
         'index.html',
