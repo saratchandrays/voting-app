@@ -7,10 +7,10 @@ import psycopg2
 import json
 
 def get_redis():
-   print ("connecting to redis!") 
    if (os.getenv('OS_ENV') == "Z"):
       print ("Connecting to Redis using Z connection string")
       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
+      redis_conn.ping()
    else:
       print ("Connecting to Redis using x86 connection string")
       redis_conn = Redis(host="new-redis", db=0, socket_timeout=5, password=os.getenv('redispasswd', "password"))
