@@ -29,7 +29,7 @@ var pool = new pg.Pool({
    database: 'postgres',
    password: process.env.DB_PASS
 //  connectionString: 'postgres://postgres:'+passwd+'@db/postgres'
-//    connectionString: 'postgres://dave:dave'+'@db/postgres'
+    connectionString: 'postgres://user:password'+'@db/database'
 });
 
 async.retry(
