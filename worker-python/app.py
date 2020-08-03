@@ -34,6 +34,8 @@ def connect_postgres():
       cursor = conn.cursor()
       sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL, vote VARCHAR(255) NOT NULL);"
       cursor.execute(sqlCreateTable)
+      sqlSelectTable = "SELECT * from votes"
+      cursor.execute(sqlSelectTable)
       print ("votes table created") 
       return conn 
 
