@@ -8,7 +8,6 @@ import json
 option_a = os.getenv('OPTION_A', "Python")
 option_b = os.getenv('OPTION_B', "Node.js")
 hostname = socket.gethostname()
-//rhost = "new-redis
 
 # may have to have env variable for Z
 
