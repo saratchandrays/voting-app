@@ -35,6 +35,7 @@ def connect_postgres():
       sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL, vote VARCHAR(255) NOT NULL);"
       cursor.execute(sqlCreateTable)
       print ("votes table created") 
+      curson.close()
       return conn 
 
    except Exception as e:
@@ -50,9 +51,11 @@ def insert_postgres(conn, data):
        ))
        conn.commit()  
        print ("row inserted into DB") 
+       cur.close()
 
     except Exception as e: 
        conn.rollback()
+       cur.close()
        print ("error inserting into postgres")  
        print (str(e)) 
 
@@ -63,6 +66,7 @@ def process_votes(db_conn):
           msg = redis.rpop("votes")
           print(msg)
           if (msg != None): 
+             print ("reading message from redis")
              msg_dict = json.loads(msg)
              insert_postgres(db_conn, msg_dict) 
           # will look like this
@@ -75,5 +79,4 @@ def process_votes(db_conn):
 if __name__ == '__main__':
     db_conn = connect_postgres()
     process_votes(db_conn)
-
-
+    db_conn.close()
