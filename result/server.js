@@ -34,6 +34,7 @@ async.retry(
     pool.connect(function(err, client, done) {
       if (err) {
         console.error("Waiting for db");
+        console.log("pg error code:", err.code);
       }
       callback(err, client);
     });
