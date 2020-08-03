@@ -32,7 +32,7 @@ def connect_postgres():
       print ("Successfully connected to PostGres")
       
       cursor = conn.cursor()
-      sqlCreateTable = "CREATE TABLE IF NOT EXISTS votes (id VARCHAR(255) NOT NULL, vote VARCHAR(255) NOT NULL);"
+      sqlCreateTable = "CREATE TABLE IF NOT EXISTS public.votes (id VARCHAR(255) NOT NULL, vote VARCHAR(255) NOT NULL);"
       cursor.execute(sqlCreateTable)
       print ("votes table created") 
       conn.commit()
@@ -61,7 +61,8 @@ def insert_postgres(conn, data):
        print (str(e)) 
 
 def process_votes(db_conn):
-    redis = get_redis() 
+    redis = get_redis()
+    redis.ping()  
     while True: 
        try:  
           msg = redis.rpop("votes")
