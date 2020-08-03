@@ -8,6 +8,7 @@ import json
 option_a = os.getenv('OPTION_A', "Python")
 option_b = os.getenv('OPTION_B', "Node.js")
 hostname = socket.gethostname()
+rhost = new-redis
 
 # may have to have env variable for Z
 
@@ -19,6 +20,7 @@ def get_redis():
             print ("Connecting to Redis using Z connection string")
             g.redis = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
             print (g.redis)
+            print('connected to redis "{}"'.format(rhost))
     else: 
        print ("Connecting to Redis using x86 connection string")
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
@@ -41,6 +43,8 @@ def hello():
         vote = request.form['vote']
         data = json.dumps({'voter_id': voter_id, 'vote': vote})
         redis.rpush('votes', data)
+        redis.ping
+       
 
     resp = make_response(render_template(
         'index.html',
