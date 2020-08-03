@@ -8,7 +8,7 @@ import json
 option_a = os.getenv('OPTION_A', "Python")
 option_b = os.getenv('OPTION_B', "Node.js")
 hostname = socket.gethostname()
-rhost = new-redis
+//rhost = "new-redis
 
 # may have to have env variable for Z
 
@@ -19,8 +19,7 @@ def get_redis():
         if not hasattr(g, 'redis'):
             print ("Connecting to Redis using Z connection string")
             g.redis = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
-            print (g.redis)
-            print('connected to redis "{}"'.format(rhost))
+            print (g.redis.ping())
     else: 
        print ("Connecting to Redis using x86 connection string")
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
