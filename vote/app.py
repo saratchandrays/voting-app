@@ -15,9 +15,10 @@ app = Flask(__name__)
 
 def get_redis():
     if (os.getenv('OS_ENV') == "Z"):
-       print ("Connecting to Redis using Z connection string")
-       g.redis = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
-       print (g.redis)
+        if not hasattr(g, 'redis'):
+            print ("Connecting to Redis using Z connection string")
+            g.redis = Redis(host="new-redis", db=0, socket_timeout=5)  # on Z 
+            print (g.redis)
     else: 
        print ("Connecting to Redis using x86 connection string")
        #redis_conn = Redis(host="new-redis", db=0, socket_timeout=5)
