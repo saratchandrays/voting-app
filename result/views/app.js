@@ -20,8 +20,8 @@ app.controller('statsCtrl', function($scope){
        bg2.style.width = percentages.b + "%";
 
        $scope.$apply(function () {
-         $scope.aPercent = percentages.a;
-         $scope.bPercent = percentages.b;
+         $scope.aPercent = percentages.b;
+         $scope.bPercent = percentages.a;
          $scope.total = a + b;
        });
     });
