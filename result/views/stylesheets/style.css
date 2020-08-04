@@ -88,12 +88,12 @@ body{
   text-transform: uppercase;
 }
 
-#choice .choice.node{
+#choice .choice.python{
   color: #00cbca;
   float: right;
 }
 
-#choice .choice.python{
+#choice .choice.node{
   color: #2196f3;
   float: left;
 }
