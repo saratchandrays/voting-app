@@ -89,12 +89,12 @@ body{
 }
 
 #choice .choice.python{
-  color: #00cbca;
+  color: #2196f3;
   float: right;
 }
 
 #choice .choice.node{
-  color: #2196f3;
+  color: #00cbca;
   float: left;
 }
 
